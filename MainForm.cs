@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using Ionic.Zip;
 using Ionic.Zlib;
-using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Drehevel
 {
@@ -293,6 +294,21 @@ namespace Drehevel
 			{
 				projectFileSelector.Text = fileDialog.FileName;
 			}
+		}
+
+		private void ShowAboutBox(object sender, EventArgs e)
+		{
+			new About().ShowDialog();
+		}
+
+		private void ShowForumThread(object sender, EventArgs e)
+		{
+			Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
+		}
+
+		private void ShowSourceCode(object sender, EventArgs e)
+		{
+			Process.Start("https://github.com/returnString/Drehevel/");
 		}
 	}
 }

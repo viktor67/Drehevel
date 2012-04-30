@@ -43,9 +43,13 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reportAnIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.projectFileSelector = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnFileSelector = new System.Windows.Forms.Button();
+			this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -159,7 +163,8 @@
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(441, 24);
@@ -189,6 +194,30 @@
 			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveBuildSettings);
 			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportAnIssueToolStripMenuItem,
+            this.sourceCodeToolStripMenuItem,
+            this.aboutToolStripMenuItem1});
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.aboutToolStripMenuItem.Text = "Help";
+			// 
+			// reportAnIssueToolStripMenuItem
+			// 
+			this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
+			this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.reportAnIssueToolStripMenuItem.Text = "Forum Thread";
+			this.reportAnIssueToolStripMenuItem.Click += new System.EventHandler(this.ShowForumThread);
+			// 
+			// aboutToolStripMenuItem1
+			// 
+			this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem1.Text = "About";
+			this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.ShowAboutBox);
+			// 
 			// projectFileSelector
 			// 
 			this.projectFileSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -216,6 +245,13 @@
 			this.btnFileSelector.Text = "Select File";
 			this.btnFileSelector.UseVisualStyleBackColor = true;
 			this.btnFileSelector.Click += new System.EventHandler(this.OutputFileSelect);
+			// 
+			// sourceCodeToolStripMenuItem
+			// 
+			this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+			this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.sourceCodeToolStripMenuItem.Text = "Source Code";
+			this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.ShowSourceCode);
 			// 
 			// MainForm
 			// 
@@ -270,6 +306,10 @@
 		private System.Windows.Forms.TextBox projectFileSelector;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnFileSelector;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem reportAnIssueToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
 	}
 }
 
