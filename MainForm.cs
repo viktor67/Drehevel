@@ -163,12 +163,6 @@ namespace Drehevel
 		/// <param name="e"></param>
 		private void OnZipProgression(object sender, SaveProgressEventArgs e)
 		{
-			if(_stopwatch == null)
-			{
-				_stopwatch = new Stopwatch();
-				_stopwatch.Start();
-			}
-
 			// Cancellation is handled via request, not outright closing
 			if(zipWorker.CancellationPending)
 			{
@@ -179,6 +173,14 @@ namespace Drehevel
 
 			switch(e.EventType)
 			{
+				// Technically doesn't include the filtering time but that's a meagre ~60ms on my machine and I can't be arsed to listen for the read event
+				case ZipProgressEventType.Saving_Started:
+					{
+						_stopwatch = new Stopwatch();
+						_stopwatch.Start();
+					}
+					break;
+
 				// FIXME: This is mildly inefficient but ZipProgressEventType.Saving_Started doesn't seem to contain the total
 				case ZipProgressEventType.Saving_BeforeWriteEntry:
 					{
