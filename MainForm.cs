@@ -154,6 +154,8 @@ namespace Drehevel
 			}
 		}
 
+		private Stopwatch _stopwatch;
+
 		/// <summary>
 		/// Called when the archiver sends a progress report.
 		/// </summary>
@@ -161,6 +163,12 @@ namespace Drehevel
 		/// <param name="e"></param>
 		private void OnZipProgression(object sender, SaveProgressEventArgs e)
 		{
+			if(_stopwatch == null)
+			{
+				_stopwatch = new Stopwatch();
+				_stopwatch.Start();
+			}
+
 			// Cancellation is handled via request, not outright closing
 			if(zipWorker.CancellationPending)
 			{
@@ -197,7 +205,7 @@ namespace Drehevel
 				// Send a message to say that the build is complete
 				case ZipProgressEventType.Saving_Completed:
 					{
-						zipWorker.ReportProgress(100, new ProgressReport { Message = "Build finished!", Type = ProgressReportType.Finished });
+						zipWorker.ReportProgress(100, new ProgressReport { Message = string.Format("Build finished in {0:0.00}s!", _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
 					}
 					break;
 			}

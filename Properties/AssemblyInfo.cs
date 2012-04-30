@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Drehevel")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A simple tool to help automate distribution of CryENGINE3 games.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ink Studios Ltd.")]
 [assembly: AssemblyProduct("Drehevel")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © 2012 Ruan Pearce-Authers")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
