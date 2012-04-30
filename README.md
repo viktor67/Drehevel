@@ -1,4 +1,3 @@
-Drehevel
-========
+Drehevel, meaning build, is 
 
-A simple tool to help automate distribution of CryENGINE3 games.
+a simple tool to help automate distribution of CryENGINE3 games by removing unnecessary files and packaging the output.
