@@ -238,6 +238,8 @@
 			this.Controls.Add(this.menuStrip1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.MainMenuStrip = this.menuStrip1;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Drehevel - CryENGINE3 Build Tool";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClose);
