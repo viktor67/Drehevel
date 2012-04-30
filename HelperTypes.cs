@@ -51,10 +51,14 @@ namespace Drehevel
 		public static string[] BannedExtensions = 
 		{
 			".bak",
+			".bak2",
 			".cry",
 			".max",
 			".psd",
-			".log"
+			".log",
+			".lib",
+			".pdb",
+			".exp"
 		};
 
 		public static string[] BannedFolders =
@@ -65,7 +69,8 @@ namespace Drehevel
 			"LogBackups",
 			"statoscope",
 			"BinTemp",
-			"USER"
+			"USER",
+			"rc"
 		};
 
 		public static string[] RequiredFiles =
@@ -78,7 +83,8 @@ namespace Drehevel
 			"Editor.exe",
 			"error.bmp",
 			"error.dmp",
-			"luac.out"
+			"luac.out",
+			"tags.txt"
 		};
 	}
 }
