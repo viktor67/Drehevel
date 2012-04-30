@@ -5,7 +5,7 @@ Drehevel, meaning build, is a simple tool to help automate distribution of CryEN
 * Removes unnecessary files like backups and editor data
 * Packages the game into a convenient .zip archive
 * Saves build settings to .xml for reuse
-* Processes the stock engine build in 12 seconds on an i7 2600k
+* Processes the stock free SDK build in two minutes at highest compression settings on an i7 2600k, or 12 seconds at no compression
 
 # Credits
 
