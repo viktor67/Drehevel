@@ -30,29 +30,55 @@ namespace Drehevel
 		}
 	}
 
-	public static class Restrictions
+	public class BuildSettings
 	{
-		public static string[] Extensions
-		{
-			get
-			{
-				return new string[]
-				{
-					".bak",
-					".cry"
-				};
-			}
-		}
+		public string ProjectFolder { get; set; }
+		public string OutputName { get; set; }
+		public CompressionLevel Compression { get; set; }
 
-		public static string[] Folders
+		// Create a list of human-readable compression choices
+		public static UICompressionChoice[] CompressionChoices =
 		{
-			get
-			{
-				return new string[]
-				{
-					"Tools"
-				};
-			}
-		}
+			new UICompressionChoice("Highest", CompressionLevel.BestCompression),
+			new UICompressionChoice("Balanced", CompressionLevel.Default),
+			new UICompressionChoice("Fastest", CompressionLevel.BestSpeed),
+			new UICompressionChoice("None", CompressionLevel.None)
+		};
+	}
+
+	public static class FileSorting
+	{
+		public static string[] BannedExtensions = 
+		{
+			".bak",
+			".cry",
+			".max",
+			".psd",
+			".log"
+		};
+
+		public static string[] BannedFolders =
+		{
+			"Tools",
+			"Editor",
+			"Code",
+			"LogBackups",
+			"statoscope",
+			"BinTemp",
+			"USER"
+		};
+
+		public static string[] RequiredFiles =
+		{
+			"CryDevLogin.exe"
+		};
+
+		public static string[] BannedFiles =
+		{
+			"Editor.exe",
+			"error.bmp",
+			"error.dmp",
+			"luac.out"
+		};
 	}
 }

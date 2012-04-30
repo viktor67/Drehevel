@@ -3,33 +3,38 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using Ionic.Zip;
 using Ionic.Zlib;
+using System.Collections.Generic;
 
 namespace Drehevel
 {
 	public partial class MainForm : Form
 	{
+		private CompressionLevel _compression;
 		/// <summary>
 		/// The currently selected compression level.
 		/// </summary>
-		private CompressionLevel _compression;
+		private CompressionLevel Compression
+		{
+			get
+			{
+				return _compression;
+			}
+			set
+			{
+				_compression = value;
+				compressionSelector.SelectedIndex = BuildSettings.CompressionChoices.ToList().FindIndex(compression => compression.Compression == value);
+			}
+		}
 
 		public MainForm()
 		{
 			InitializeComponent();
 
-			// Create a list of human-readable compression choices
-			var compressionChoices = new UICompressionChoice[]
-			{
-			    new UICompressionChoice("Highest", CompressionLevel.BestCompression),
-				new UICompressionChoice("Balanced", CompressionLevel.Default),
-				new UICompressionChoice("Fastest", CompressionLevel.BestSpeed),
-				new UICompressionChoice("None", CompressionLevel.None)
-			};
-
-			compressionSelector.DataSource = compressionChoices;
-			_compression = compressionChoices.First().Compression;
+			compressionSelector.DataSource = BuildSettings.CompressionChoices;
+			Compression = BuildSettings.CompressionChoices.First().Compression;
 		}
 
 		/// <summary>
@@ -39,7 +44,7 @@ namespace Drehevel
 		/// <param name="e"></param>
 		private void StartBuild(object sender, EventArgs e)
 		{
-			zipWorker.RunWorkerAsync();
+			zipWorker.RunWorkerAsync(projectFolderSelector.Text);
 		}
 
 		/// <summary>
@@ -97,32 +102,54 @@ namespace Drehevel
 		/// <param name="e"></param>
 		private void DoWork(object sender, DoWorkEventArgs e)
 		{
-			var dir = new DirectoryInfo(@"C:\Dev\CryENGINE3\");
+			var dirPath = e.Argument as string;
+
+			if(string.IsNullOrEmpty(dirPath))
+			{
+				e.Cancel = true;
+				return;
+			}
+
+			var dir = new DirectoryInfo(dirPath);
 
 			using(var archive = new ZipFile())
 			{
-				archive.CompressionLevel = _compression;
+				archive.CompressionLevel = Compression;
 				archive.SaveProgress += this.OnZipProgression;
 
 				// This magically fixes an issue for certain files, don't question it
 				archive.CodecBufferSize = 10240000;
 
-				var dirs = dir.GetDirectories("*", SearchOption.AllDirectories).ToList();
+				var dirs = new List<DirectoryInfo>();
 				dirs.Add(dir);
+
+				foreach(var subdir in dir.GetDirectories("*", SearchOption.AllDirectories))
+				{
+					if(subdir.GetFiles().Any(file => FileSorting.RequiredFiles.Contains(file.Name)))
+					{
+						dirs.Add(subdir);
+						continue;
+					}
+					else if(FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder)))
+						continue;
+					else
+						dirs.Add(subdir);
+				}
 
 				foreach(var subdir in dirs)
 				{
 					var dirName = subdir.FullName.Replace(dir.FullName, "");
 
 					// Inner loop
-					foreach(var file in subdir.GetFiles().Where(file => !Restrictions.Extensions.Contains(file.Extension)))
+					foreach(var file in subdir.GetFiles().Where(file => !FileSorting.BannedExtensions.Contains(file.Extension) && !FileSorting.BannedFiles.Contains(file.Name)
+						&& (!FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder)) || FileSorting.RequiredFiles.Contains(file.Name))))
 					{
 						var tempfile = archive.AddFile(file.FullName);
 						tempfile.FileName = Path.Combine(dirName, file.Name);
 					}
 				}
 
-				archive.Save(@"D:\output.zip");
+				archive.Save(projectFileSelector.Text);
 			}
 		}
 
@@ -177,7 +204,7 @@ namespace Drehevel
 
 		private void OnCompressionSelectionChange(object sender, EventArgs e)
 		{
-			_compression = (CompressionLevel)compressionSelector.SelectedValue;
+			Compression = (CompressionLevel)compressionSelector.SelectedValue;
 		}
 
 		/// <summary>
@@ -193,6 +220,78 @@ namespace Drehevel
 			{
 				MessageBox.Show("Please cancel the build before exiting the application.", "Build in progress!");
 				e.Cancel = true;
+			}
+		}
+
+		private string SavePath
+		{
+			get
+			{
+				var savePath = Path.Combine(Directory.GetParent(Application.ExecutablePath).FullName, "Builds");
+
+				if(!Directory.Exists(savePath))
+					Directory.CreateDirectory(savePath);
+				Console.WriteLine(savePath);
+				return savePath;
+			}
+		}
+
+		private void LoadBuildSettings(object sender, EventArgs e)
+		{
+			var fileDialog = new OpenFileDialog();
+			fileDialog.InitialDirectory = SavePath;
+			fileDialog.Filter = "Build settings (*.xml)|*.xml";
+
+			var loader = new XmlSerializer(typeof(BuildSettings));
+
+			if(fileDialog.ShowDialog() == DialogResult.OK)
+			{
+				using(var stream = fileDialog.OpenFile())
+				{
+					var settings = loader.Deserialize(stream) as BuildSettings;
+					Compression = settings.Compression;
+					projectFolderSelector.Text = settings.ProjectFolder;
+					projectFileSelector.Text = settings.OutputName;
+				}
+			}
+		}
+
+		private void SaveBuildSettings(object sender, EventArgs e)
+		{
+			var fileDialog = new SaveFileDialog();
+			fileDialog.InitialDirectory = SavePath;
+			fileDialog.Filter = "Build settings (*.xml)|*.xml";
+
+			var saver = new XmlSerializer(typeof(BuildSettings));
+
+			if(fileDialog.ShowDialog() == DialogResult.OK)
+			{
+				using(var stream = fileDialog.OpenFile())
+				{
+					var buildfile = new BuildSettings { Compression = Compression, OutputName = projectFileSelector.Text, ProjectFolder = projectFolderSelector.Text };
+					saver.Serialize(stream, buildfile);
+				}
+			}
+		}
+
+		private void FolderSelect(object sender, EventArgs e)
+		{
+			var folderDialog = new FolderBrowserDialog();
+
+			if(folderDialog.ShowDialog() == DialogResult.OK)
+			{
+				projectFolderSelector.Text = folderDialog.SelectedPath;
+			}
+		}
+
+		private void OutputFileSelect(object sender, EventArgs e)
+		{
+			var fileDialog = new SaveFileDialog();
+			fileDialog.Filter = "Zip archive (*.zip)|*.zip";
+
+			if(fileDialog.ShowDialog() == DialogResult.OK)
+			{
+				projectFileSelector.Text = fileDialog.FileName;
 			}
 		}
 	}
