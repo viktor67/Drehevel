@@ -240,7 +240,7 @@ namespace Drehevel
 
 				if(!Directory.Exists(savePath))
 					Directory.CreateDirectory(savePath);
-				Console.WriteLine(savePath);
+				
 				return savePath;
 			}
 		}
