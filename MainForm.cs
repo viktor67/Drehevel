@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Ionic.Zip;
 using Ionic.Zlib;
-using System.Diagnostics;
 
 namespace Drehevel
 {
@@ -184,7 +184,8 @@ namespace Drehevel
 				// FIXME: This is mildly inefficient but ZipProgressEventType.Saving_Started doesn't seem to contain the total
 				case ZipProgressEventType.Saving_BeforeWriteEntry:
 					{
-						zipWorker.ReportProgress(0, new ProgressReport { Max = e.EntriesTotal, Type = ProgressReportType.Startup });
+						zipWorker.ReportProgress(0,
+							new ProgressReport { Max = e.EntriesTotal, Type = ProgressReportType.Startup });
 					}
 					break;
 
@@ -192,7 +193,8 @@ namespace Drehevel
 				case ZipProgressEventType.Saving_AfterWriteEntry:
 					{
 						zipWorker.ReportProgress(e.EntriesSaved,
-							new ProgressReport { Message = string.Format("Processing file {0}/{1} ({2})", e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()), Type = ProgressReportType.ArchiveUpdate });
+							new ProgressReport { Message = string.Format("Processing file {0}/{1} ({2})", e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
+								Type = ProgressReportType.ArchiveUpdate });
 					}
 					break;
 
@@ -207,7 +209,8 @@ namespace Drehevel
 				// Send a message to say that the build is complete
 				case ZipProgressEventType.Saving_Completed:
 					{
-						zipWorker.ReportProgress(100, new ProgressReport { Message = string.Format("Build finished in {0:0.00}s!", _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
+						zipWorker.ReportProgress(100,
+							new ProgressReport { Message = string.Format("Build finished in {0:0.00}s!", _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
 					}
 					break;
 			}
@@ -234,6 +237,9 @@ namespace Drehevel
 			}
 		}
 
+		/// <summary>
+		/// Gets the Builds folder for the application
+		/// </summary>
 		private string SavePath
 		{
 			get
