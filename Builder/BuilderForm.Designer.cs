@@ -209,14 +209,12 @@
 			this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
 			this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.reportAnIssueToolStripMenuItem.Text = "Forum Thread";
-			this.reportAnIssueToolStripMenuItem.Click += new System.EventHandler(this.ShowForumThread);
 			// 
 			// aboutToolStripMenuItem1
 			// 
 			this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
 			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.aboutToolStripMenuItem1.Text = "About";
-			this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.ShowAboutBox);
 			// 
 			// projectFileSelector
 			// 
@@ -251,7 +249,6 @@
 			this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
 			this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.sourceCodeToolStripMenuItem.Text = "Source Code";
-			this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.ShowSourceCode);
 			// 
 			// MainForm
 			// 

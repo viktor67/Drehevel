@@ -36,6 +36,10 @@ namespace Drehevel
 
 			compressionSelector.DataSource = BuildSettings.CompressionChoices;
 			Compression = BuildSettings.CompressionChoices.First().Compression;
+			
+			aboutToolStripMenuItem1.Click += (sender, args) => new About().ShowDialog();
+			reportAnIssueToolStripMenuItem.Click += (sender, args) => Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
+			sourceCodeToolStripMenuItem.Click += (sender, args) => Process.Start("https://github.com/returnString/Drehevel/");
 		}
 
 		/// <summary>
@@ -330,21 +334,6 @@ namespace Drehevel
 			{
 				projectFileSelector.Text = fileDialog.FileName;
 			}
-		}
-
-		private void ShowAboutBox(object sender, EventArgs e)
-		{
-			new About().ShowDialog();
-		}
-
-		private void ShowForumThread(object sender, EventArgs e)
-		{
-			Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
-		}
-
-		private void ShowSourceCode(object sender, EventArgs e)
-		{
-			Process.Start("https://github.com/returnString/Drehevel/");
 		}
 	}
 }
