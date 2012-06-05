@@ -33,7 +33,12 @@ namespace Drehevel.Builder
 									 where !lbLevels.CheckedItems.Contains(level)
 									 select level;
 
-				_owner.StartBuild(uncheckedItems);
+				var uncheckedWithSubdirs = uncheckedItems.ToList();
+
+				foreach(var item in uncheckedItems)
+					uncheckedWithSubdirs.AddRange(item.GetDirectories("*", SearchOption.AllDirectories));
+
+				_owner.StartBuild(uncheckedWithSubdirs);
 				Close();
 			};
 		}
