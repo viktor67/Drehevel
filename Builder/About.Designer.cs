@@ -1,4 +1,4 @@
-﻿namespace Drehevel
+﻿namespace Drehevel.Builder
 {
 	partial class About
 	{

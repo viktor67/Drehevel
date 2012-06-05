@@ -1,4 +1,4 @@
-﻿namespace Drehevel
+﻿namespace Drehevel.Builder
 {
 	partial class BuilderForm
 	{
@@ -45,11 +45,11 @@
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportAnIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.projectFileSelector = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnFileSelector = new System.Windows.Forms.Button();
-			this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -61,7 +61,7 @@
 			this.btnStartBuild.TabIndex = 0;
 			this.btnStartBuild.Text = "Start Build";
 			this.btnStartBuild.UseVisualStyleBackColor = true;
-			this.btnStartBuild.Click += new System.EventHandler(this.StartBuild);
+			this.btnStartBuild.Click += new System.EventHandler(this.PreBuild);
 			// 
 			// overallProgress
 			// 
@@ -207,13 +207,19 @@
 			// reportAnIssueToolStripMenuItem
 			// 
 			this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
-			this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
 			this.reportAnIssueToolStripMenuItem.Text = "Forum Thread";
+			// 
+			// sourceCodeToolStripMenuItem
+			// 
+			this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+			this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.sourceCodeToolStripMenuItem.Text = "Source Code";
 			// 
 			// aboutToolStripMenuItem1
 			// 
 			this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
 			this.aboutToolStripMenuItem1.Text = "About";
 			// 
 			// projectFileSelector
@@ -244,13 +250,7 @@
 			this.btnFileSelector.UseVisualStyleBackColor = true;
 			this.btnFileSelector.Click += new System.EventHandler(this.OutputFileSelect);
 			// 
-			// sourceCodeToolStripMenuItem
-			// 
-			this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-			this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.sourceCodeToolStripMenuItem.Text = "Source Code";
-			// 
-			// MainForm
+			// BuilderForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,7 +273,7 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "MainForm";
+			this.Name = "BuilderForm";
 			this.Text = "Drehevel - CryENGINE3 Build Tool";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClose);
 			this.menuStrip1.ResumeLayout(false);

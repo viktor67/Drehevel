@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Drehevel
+namespace Drehevel.Builder
 {
 	public partial class About : Form
 	{

@@ -13,7 +13,7 @@ namespace Drehevel
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new BuilderForm());
+			Application.Run(new Builder.BuilderForm());
 		}
 	}
 }

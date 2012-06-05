@@ -6,10 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using System.Windows.Shell;
 using Ionic.Zip;
 using Ionic.Zlib;
 
-namespace Drehevel
+namespace Drehevel.Builder
 {
 	public partial class BuilderForm : Form
 	{
@@ -36,7 +37,7 @@ namespace Drehevel
 
 			compressionSelector.DataSource = BuildSettings.CompressionChoices;
 			Compression = BuildSettings.CompressionChoices.First().Compression;
-			
+
 			aboutToolStripMenuItem1.Click += (sender, args) => new About().ShowDialog();
 			reportAnIssueToolStripMenuItem.Click += (sender, args) => Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
 			sourceCodeToolStripMenuItem.Click += (sender, args) => Process.Start("https://github.com/returnString/Drehevel/");
@@ -47,9 +48,32 @@ namespace Drehevel
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void StartBuild(object sender, EventArgs e)
+		private void PreBuild(object sender, EventArgs e)
 		{
-			zipWorker.RunWorkerAsync(projectFolderSelector.Text);
+			if(string.IsNullOrEmpty(projectFolderSelector.Text))
+				return;
+
+			var rootDir = new DirectoryInfo(projectFolderSelector.Text);
+			var levelRoot = new DirectoryInfo(Path.Combine(rootDir.FullName, "Game", "Levels"));
+
+			// Game\Levels can be optionally organised by gamerules, i.e. Singleplayer\Forest
+			// To fix this, we search for the .cry file
+			var filteredLevelDirs = from levelDir in levelRoot.GetDirectories("*", SearchOption.AllDirectories)
+									where levelDir.GetFiles().Any(file => file.Extension == ".cry")
+									select levelDir;
+
+			var levelSelector = new LevelSelector(this);
+			levelSelector.DisplayLevels(filteredLevelDirs);
+			levelSelector.ShowDialog();
+		}
+
+		public void StartBuild(IEnumerable<DirectoryInfo> excludedLevels)
+		{
+			zipWorker.RunWorkerAsync(new WorkArguments
+			{
+				RootDirectory = new DirectoryInfo(projectFolderSelector.Text),
+				ExcludedLevels = excludedLevels
+			});
 		}
 
 		/// <summary>
@@ -107,15 +131,7 @@ namespace Drehevel
 		/// <param name="e"></param>
 		private void DoWork(object sender, DoWorkEventArgs e)
 		{
-			var dirPath = e.Argument as string;
-
-			if(string.IsNullOrEmpty(dirPath))
-			{
-				e.Cancel = true;
-				return;
-			}
-
-			var dir = new DirectoryInfo(dirPath);
+			var arguments = e.Argument as WorkArguments;
 
 			using(var archive = new ZipFile())
 			{
@@ -126,28 +142,32 @@ namespace Drehevel
 				archive.CodecBufferSize = 10240000;
 
 				var dirs = new List<DirectoryInfo>();
-				dirs.Add(dir);
+				dirs.Add(arguments.RootDirectory);
 
-				foreach(var subdir in dir.GetDirectories("*", SearchOption.AllDirectories))
-				{
-					if(subdir.GetFiles().Any(file => FileSorting.RequiredFiles.Contains(file.Name)))
-					{
-						dirs.Add(subdir);
-						continue;
-					}
-					else if(FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder)))
-						continue;
-					else
-						dirs.Add(subdir);
-				}
+				// We always want dirs with a required file inside, so shortcircuit that
+				// After that, grab folders which aren't excluded levels, editor dirs or banned folders
+				var availableDirs = from subdir in arguments.RootDirectory.GetDirectories("*", SearchOption.AllDirectories)
+									where subdir.GetFiles().Any(file => FileSorting.RequiredFiles.Contains(file.Name))
+										|| (!arguments.ExcludedLevels.Any(level => level.FullName == subdir.FullName)
+											&& !subdir.Name.Contains("_editor")
+											&& !FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder)))
+									select subdir;
+
+				dirs.AddRange(availableDirs);
 
 				foreach(var subdir in dirs)
 				{
-					var dirName = subdir.FullName.Replace(dir.FullName, "");
+					var dirName = subdir.FullName.Replace(arguments.RootDirectory.FullName, "");
 
-					// Inner loop
-					foreach(var file in subdir.GetFiles().Where(file => !FileSorting.BannedExtensions.Contains(file.Extension) && !FileSorting.BannedFiles.Contains(file.Name)
-						&& (!FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder)) || FileSorting.RequiredFiles.Contains(file.Name))))
+					// We only want files which aren't on the banned extension or name lists
+					var files = from file in subdir.GetFiles()
+								where !FileSorting.BannedExtensions.Contains(file.Extension)
+									&& !FileSorting.BannedFiles.Contains(file.Name)
+								select file;
+
+					// Remap names for proper relative hierarchy inside the archive
+					// Otherwise we get horrible full path replication
+					foreach(var file in files)
 					{
 						var tempfile = archive.AddFile(file.FullName);
 						tempfile.FileName = Path.Combine(dirName, file.Name);
@@ -197,8 +217,11 @@ namespace Drehevel
 				case ZipProgressEventType.Saving_AfterWriteEntry:
 					{
 						zipWorker.ReportProgress(e.EntriesSaved,
-							new ProgressReport { Message = string.Format("Processing file {0}/{1} ({2})", e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
-								Type = ProgressReportType.ArchiveUpdate });
+							new ProgressReport
+							{
+								Message = string.Format("Processing file {0}/{1} ({2})", e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
+								Type = ProgressReportType.ArchiveUpdate
+							});
 					}
 					break;
 
@@ -252,7 +275,7 @@ namespace Drehevel
 
 				if(!Directory.Exists(savePath))
 					Directory.CreateDirectory(savePath);
-				
+
 				return savePath;
 			}
 		}

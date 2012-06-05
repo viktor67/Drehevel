@@ -1,7 +1,15 @@
-﻿using Ionic.Zlib;
+﻿using System.Collections.Generic;
+using System.IO;
+using Ionic.Zlib;
 
-namespace Drehevel
+namespace Drehevel.Builder
 {
+	public class WorkArguments
+	{
+		public DirectoryInfo RootDirectory { get; set; }
+		public IEnumerable<DirectoryInfo> ExcludedLevels { get; set; }
+	}
+
 	public struct ProgressReport
 	{
 		public string Message { get; set; }
