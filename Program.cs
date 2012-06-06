@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
+using Drehevel.Builder;
+using Drehevel.Properties;
 
 namespace Drehevel
 {
@@ -13,7 +17,8 @@ namespace Drehevel
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Builder.BuilderForm());
+			Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Language);
+			Application.Run(new BuilderForm());
 		}
 	}
 }

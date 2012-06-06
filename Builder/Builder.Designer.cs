@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuilderForm));
 			this.btnStartBuild = new System.Windows.Forms.Button();
 			this.overallProgress = new System.Windows.Forms.ProgressBar();
 			this.zipWorker = new System.ComponentModel.BackgroundWorker();
@@ -43,6 +44,13 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.françaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.norskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportAnIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,22 +63,15 @@
 			// 
 			// btnStartBuild
 			// 
-			this.btnStartBuild.Location = new System.Drawing.Point(12, 152);
+			resources.ApplyResources(this.btnStartBuild, "btnStartBuild");
 			this.btnStartBuild.Name = "btnStartBuild";
-			this.btnStartBuild.Size = new System.Drawing.Size(75, 23);
-			this.btnStartBuild.TabIndex = 0;
-			this.btnStartBuild.Text = "Start Build";
 			this.btnStartBuild.UseVisualStyleBackColor = true;
 			this.btnStartBuild.Click += new System.EventHandler(this.PreBuild);
 			// 
 			// overallProgress
 			// 
-			this.overallProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.overallProgress.Location = new System.Drawing.Point(12, 258);
+			resources.ApplyResources(this.overallProgress, "overallProgress");
 			this.overallProgress.Name = "overallProgress";
-			this.overallProgress.Size = new System.Drawing.Size(417, 23);
-			this.overallProgress.TabIndex = 1;
 			// 
 			// zipWorker
 			// 
@@ -81,180 +82,170 @@
 			// 
 			// statusText
 			// 
-			this.statusText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.statusText.AutoSize = true;
-			this.statusText.Location = new System.Drawing.Point(12, 213);
+			resources.ApplyResources(this.statusText, "statusText");
 			this.statusText.Name = "statusText";
-			this.statusText.Size = new System.Drawing.Size(24, 13);
-			this.statusText.TabIndex = 2;
-			this.statusText.Text = "Idle";
 			// 
 			// fileProgress
 			// 
-			this.fileProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.fileProgress.Location = new System.Drawing.Point(12, 229);
+			resources.ApplyResources(this.fileProgress, "fileProgress");
 			this.fileProgress.Name = "fileProgress";
-			this.fileProgress.Size = new System.Drawing.Size(417, 23);
-			this.fileProgress.TabIndex = 3;
 			// 
 			// btnCancelBuild
 			// 
-			this.btnCancelBuild.Enabled = false;
-			this.btnCancelBuild.Location = new System.Drawing.Point(93, 152);
+			resources.ApplyResources(this.btnCancelBuild, "btnCancelBuild");
 			this.btnCancelBuild.Name = "btnCancelBuild";
-			this.btnCancelBuild.Size = new System.Drawing.Size(75, 23);
-			this.btnCancelBuild.TabIndex = 4;
-			this.btnCancelBuild.Text = "Cancel";
 			this.btnCancelBuild.UseVisualStyleBackColor = true;
 			this.btnCancelBuild.Click += new System.EventHandler(this.CancelBuild);
 			// 
 			// compressionSelector
 			// 
-			this.compressionSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			resources.ApplyResources(this.compressionSelector, "compressionSelector");
 			this.compressionSelector.DisplayMember = "Name";
 			this.compressionSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.compressionSelector.FormattingEnabled = true;
-			this.compressionSelector.Location = new System.Drawing.Point(310, 154);
 			this.compressionSelector.Name = "compressionSelector";
-			this.compressionSelector.Size = new System.Drawing.Size(119, 21);
-			this.compressionSelector.TabIndex = 5;
 			this.compressionSelector.ValueMember = "Compression";
 			this.compressionSelector.SelectedIndexChanged += new System.EventHandler(this.OnCompressionSelectionChange);
 			// 
 			// label1
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(234, 157);
+			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(70, 13);
-			this.label1.TabIndex = 6;
-			this.label1.Text = "Compression:";
 			// 
 			// projectFolderSelector
 			// 
-			this.projectFolderSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.projectFolderSelector.Location = new System.Drawing.Point(12, 57);
+			resources.ApplyResources(this.projectFolderSelector, "projectFolderSelector");
 			this.projectFolderSelector.Name = "projectFolderSelector";
-			this.projectFolderSelector.Size = new System.Drawing.Size(309, 20);
-			this.projectFolderSelector.TabIndex = 7;
 			// 
 			// label2
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 41);
+			resources.ApplyResources(this.label2, "label2");
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(84, 13);
-			this.label2.TabIndex = 8;
-			this.label2.Text = "Project Location";
 			// 
 			// btnProjectSelector
 			// 
-			this.btnProjectSelector.Location = new System.Drawing.Point(324, 54);
+			resources.ApplyResources(this.btnProjectSelector, "btnProjectSelector");
 			this.btnProjectSelector.Name = "btnProjectSelector";
-			this.btnProjectSelector.Size = new System.Drawing.Size(105, 23);
-			this.btnProjectSelector.TabIndex = 9;
-			this.btnProjectSelector.Text = "Select Folder";
 			this.btnProjectSelector.UseVisualStyleBackColor = true;
 			this.btnProjectSelector.Click += new System.EventHandler(this.FolderSelect);
 			// 
 			// menuStrip1
 			// 
+			resources.ApplyResources(this.menuStrip1, "menuStrip1");
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.settingsToolStripMenuItem,
             this.aboutToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(441, 24);
-			this.menuStrip1.TabIndex = 10;
-			this.menuStrip1.Text = "menuStrip1";
 			// 
 			// fileToolStripMenuItem
 			// 
+			resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem.Text = "File";
 			// 
 			// openToolStripMenuItem
 			// 
+			resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.LoadBuildSettings);
 			// 
 			// saveToolStripMenuItem
 			// 
+			resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveBuildSettings);
+			// 
+			// settingsToolStripMenuItem
+			// 
+			resources.ApplyResources(this.settingsToolStripMenuItem, "settingsToolStripMenuItem");
+			this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageToolStripMenuItem});
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			// 
+			// languageToolStripMenuItem
+			// 
+			resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
+			this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.françaisToolStripMenuItem,
+            this.deutschToolStripMenuItem,
+            this.norskToolStripMenuItem,
+            this.中文ToolStripMenuItem});
+			this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+			// 
+			// englishToolStripMenuItem
+			// 
+			resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+			this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+			// 
+			// françaisToolStripMenuItem
+			// 
+			resources.ApplyResources(this.françaisToolStripMenuItem, "françaisToolStripMenuItem");
+			this.françaisToolStripMenuItem.Name = "françaisToolStripMenuItem";
+			// 
+			// deutschToolStripMenuItem
+			// 
+			resources.ApplyResources(this.deutschToolStripMenuItem, "deutschToolStripMenuItem");
+			this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
+			// 
+			// norskToolStripMenuItem
+			// 
+			resources.ApplyResources(this.norskToolStripMenuItem, "norskToolStripMenuItem");
+			this.norskToolStripMenuItem.Name = "norskToolStripMenuItem";
+			// 
+			// 中文ToolStripMenuItem
+			// 
+			resources.ApplyResources(this.中文ToolStripMenuItem, "中文ToolStripMenuItem");
+			this.中文ToolStripMenuItem.Name = "中文ToolStripMenuItem";
 			// 
 			// aboutToolStripMenuItem
 			// 
+			resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
 			this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportAnIssueToolStripMenuItem,
             this.sourceCodeToolStripMenuItem,
             this.aboutToolStripMenuItem1});
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-			this.aboutToolStripMenuItem.Text = "Help";
 			// 
 			// reportAnIssueToolStripMenuItem
 			// 
+			resources.ApplyResources(this.reportAnIssueToolStripMenuItem, "reportAnIssueToolStripMenuItem");
 			this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
-			this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-			this.reportAnIssueToolStripMenuItem.Text = "Forum Thread";
 			// 
 			// sourceCodeToolStripMenuItem
 			// 
+			resources.ApplyResources(this.sourceCodeToolStripMenuItem, "sourceCodeToolStripMenuItem");
 			this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-			this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-			this.sourceCodeToolStripMenuItem.Text = "Source Code";
 			// 
 			// aboutToolStripMenuItem1
 			// 
+			resources.ApplyResources(this.aboutToolStripMenuItem1, "aboutToolStripMenuItem1");
 			this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
-			this.aboutToolStripMenuItem1.Text = "About";
 			// 
 			// projectFileSelector
 			// 
-			this.projectFileSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.projectFileSelector.Location = new System.Drawing.Point(12, 98);
+			resources.ApplyResources(this.projectFileSelector, "projectFileSelector");
 			this.projectFileSelector.Name = "projectFileSelector";
-			this.projectFileSelector.Size = new System.Drawing.Size(309, 20);
-			this.projectFileSelector.TabIndex = 11;
 			// 
 			// label3
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 80);
+			resources.ApplyResources(this.label3, "label3");
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(58, 13);
-			this.label3.TabIndex = 12;
-			this.label3.Text = "Output File";
 			// 
 			// btnFileSelector
 			// 
-			this.btnFileSelector.Location = new System.Drawing.Point(324, 95);
+			resources.ApplyResources(this.btnFileSelector, "btnFileSelector");
 			this.btnFileSelector.Name = "btnFileSelector";
-			this.btnFileSelector.Size = new System.Drawing.Size(105, 23);
-			this.btnFileSelector.TabIndex = 13;
-			this.btnFileSelector.Text = "Select File";
 			this.btnFileSelector.UseVisualStyleBackColor = true;
 			this.btnFileSelector.Click += new System.EventHandler(this.OutputFileSelect);
 			// 
 			// BuilderForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(441, 293);
 			this.Controls.Add(this.btnFileSelector);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.projectFileSelector);
@@ -274,7 +265,6 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "BuilderForm";
-			this.Text = "Drehevel - CryENGINE3 Build Tool";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClose);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
@@ -307,6 +297,13 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem reportAnIssueToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem françaisToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deutschToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem norskToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 中文ToolStripMenuItem;
 	}
 }
 

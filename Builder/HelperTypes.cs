@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Drehevel.Properties;
 using Ionic.Zlib;
 
 namespace Drehevel.Builder
@@ -23,7 +24,8 @@ namespace Drehevel.Builder
 		FileUpdate,
 		ArchiveUpdate,
 		Finished,
-		Aborted
+		Aborted,
+		FileListReady
 	}
 
 	public class UICompressionChoice
@@ -47,10 +49,10 @@ namespace Drehevel.Builder
 		// Create a list of human-readable compression choices
 		public static UICompressionChoice[] CompressionChoices =
 		{
-			new UICompressionChoice("Highest", CompressionLevel.BestCompression),
-			new UICompressionChoice("Balanced", CompressionLevel.Default),
-			new UICompressionChoice("Fastest", CompressionLevel.BestSpeed),
-			new UICompressionChoice("None", CompressionLevel.None)
+			new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
+			new UICompressionChoice(Resources.DefaultCompression, CompressionLevel.Default),
+			new UICompressionChoice(Resources.FastCompression, CompressionLevel.BestSpeed),
+			new UICompressionChoice(Resources.NoCompression, CompressionLevel.None)
 		};
 	}
 

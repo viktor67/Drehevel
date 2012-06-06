@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using System.Windows.Shell;
+using Drehevel.Properties;
 using Ionic.Zip;
 using Ionic.Zlib;
 
@@ -38,9 +40,32 @@ namespace Drehevel.Builder
 			compressionSelector.DataSource = BuildSettings.CompressionChoices;
 			Compression = BuildSettings.CompressionChoices.First().Compression;
 
-			aboutToolStripMenuItem1.Click += (sender, args) => new About().ShowDialog();
-			reportAnIssueToolStripMenuItem.Click += (sender, args) => Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
-			sourceCodeToolStripMenuItem.Click += (sender, args) => Process.Start("https://github.com/returnString/Drehevel/");
+			aboutToolStripMenuItem1.Click += (sender, args) =>
+				new About().ShowDialog();
+
+			reportAnIssueToolStripMenuItem.Click += (sender, args) =>
+				Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
+
+			sourceCodeToolStripMenuItem.Click += (sender, args) =>
+				Process.Start("https://github.com/returnString/Drehevel/");
+
+			// Register languages
+			englishToolStripMenuItem.Click += OnLanguageChange;
+			françaisToolStripMenuItem.Click += OnLanguageChange;
+			deutschToolStripMenuItem.Click += OnLanguageChange;
+			norskToolStripMenuItem.Click += OnLanguageChange;
+			中文ToolStripMenuItem.Click += OnLanguageChange;
+		}
+
+		private void OnLanguageChange(object sender, EventArgs e)
+		{
+			var lang = (sender as ToolStripMenuItem).Text;
+			var culture = CultureInfo.GetCultures(CultureTypes.AllCultures).First(
+				cult => string.Equals(cult.NativeName, lang, StringComparison.InvariantCultureIgnoreCase));
+
+			Settings.Default.Language = culture.TwoLetterISOLanguageName;
+			Settings.Default.Save();
+			Application.Restart();
 		}
 
 		/// <summary>
@@ -50,8 +75,11 @@ namespace Drehevel.Builder
 		/// <param name="e"></param>
 		private void PreBuild(object sender, EventArgs e)
 		{
-			if(string.IsNullOrEmpty(projectFolderSelector.Text))
+			if(string.IsNullOrEmpty(projectFolderSelector.Text) || string.IsNullOrEmpty(projectFileSelector.Text))
+			{
+				MessageBox.Show(Resources.EmptyOptionsMessage, Resources.EmptyOptionsTitle);
 				return;
+			}
 
 			var rootDir = new DirectoryInfo(projectFolderSelector.Text);
 			var levelRoot = new DirectoryInfo(Path.Combine(rootDir.FullName, "Game", "Levels"));
@@ -62,8 +90,7 @@ namespace Drehevel.Builder
 									where levelDir.GetFiles().Any(file => file.Extension == ".cry")
 									select levelDir;
 
-			var levelSelector = new LevelSelector(this);
-			levelSelector.DisplayLevels(filteredLevelDirs);
+			var levelSelector = new LevelSelector(this, filteredLevelDirs);
 			levelSelector.ShowDialog();
 		}
 
@@ -100,6 +127,11 @@ namespace Drehevel.Builder
 
 			switch(progressReport.Type)
 			{
+				case ProgressReportType.FileListReady:
+					var list = new FileList(_usedFiles);
+					list.Show();
+					break;
+
 				case ProgressReportType.ArchiveUpdate:
 					overallProgress.Value = e.ProgressPercentage;
 					break;
@@ -124,6 +156,8 @@ namespace Drehevel.Builder
 			}
 		}
 
+		private List<FileInfo> _usedFiles;
+
 		/// <summary>
 		/// Controls file sorting and archive creation.
 		/// </summary>
@@ -131,6 +165,8 @@ namespace Drehevel.Builder
 		/// <param name="e"></param>
 		private void DoWork(object sender, DoWorkEventArgs e)
 		{
+			Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Language);
+
 			var arguments = e.Argument as WorkArguments;
 
 			using(var archive = new ZipFile())
@@ -155,6 +191,8 @@ namespace Drehevel.Builder
 
 				dirs.AddRange(availableDirs);
 
+				_usedFiles = new List<FileInfo>();
+
 				foreach(var subdir in dirs)
 				{
 					var dirName = subdir.FullName.Replace(arguments.RootDirectory.FullName, "");
@@ -171,6 +209,7 @@ namespace Drehevel.Builder
 					{
 						var tempfile = archive.AddFile(file.FullName);
 						tempfile.FileName = Path.Combine(dirName, file.Name);
+						_usedFiles.Add(file);
 					}
 				}
 
@@ -191,7 +230,7 @@ namespace Drehevel.Builder
 			if(zipWorker.CancellationPending)
 			{
 				e.Cancel = true;
-				zipWorker.ReportProgress(0, new ProgressReport { Type = ProgressReportType.Aborted, Message = "Build aborted!" });
+				zipWorker.ReportProgress(0, new ProgressReport { Type = ProgressReportType.Aborted, Message = Resources.BuildAborted });
 				return;
 			}
 
@@ -200,6 +239,7 @@ namespace Drehevel.Builder
 				// Technically doesn't include the filtering time but that's a meagre ~60ms on my machine and I can't be arsed to listen for the read event
 				case ZipProgressEventType.Saving_Started:
 					{
+						zipWorker.ReportProgress(0, new ProgressReport { Type = ProgressReportType.FileListReady });
 						_stopwatch = new Stopwatch();
 						_stopwatch.Start();
 					}
@@ -219,7 +259,7 @@ namespace Drehevel.Builder
 						zipWorker.ReportProgress(e.EntriesSaved,
 							new ProgressReport
 							{
-								Message = string.Format("Processing file {0}/{1} ({2})", e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
+								Message = string.Format(Resources.ProcessingFile, e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
 								Type = ProgressReportType.ArchiveUpdate
 							});
 					}
@@ -237,7 +277,7 @@ namespace Drehevel.Builder
 				case ZipProgressEventType.Saving_Completed:
 					{
 						zipWorker.ReportProgress(100,
-							new ProgressReport { Message = string.Format("Build finished in {0:0.00}s!", _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
+							new ProgressReport { Message = string.Format(Resources.BuildFinished, _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
 					}
 					break;
 			}
@@ -259,9 +299,11 @@ namespace Drehevel.Builder
 			// Better than assuming the user hasn't accidentally misclicked
 			if(zipWorker.IsBusy)
 			{
-				MessageBox.Show("Please cancel the build before exiting the application.", "Build in progress!");
+				MessageBox.Show(Resources.CancelBeforeQuitMessage, Resources.CancelBeforeQuitTitle);
 				e.Cancel = true;
 			}
+
+			Settings.Default.Save();
 		}
 
 		/// <summary>
@@ -280,6 +322,11 @@ namespace Drehevel.Builder
 			}
 		}
 
+		private string DialogMessage
+		{
+			get { return string.Format("{0} (*.xml)|*.xml", Resources.BuildSettings); }
+		}
+
 		/// <summary>
 		/// Loads the build settings from an .xml file.
 		/// </summary>
@@ -289,7 +336,7 @@ namespace Drehevel.Builder
 		{
 			var fileDialog = new OpenFileDialog();
 			fileDialog.InitialDirectory = SavePath;
-			fileDialog.Filter = "Build settings (*.xml)|*.xml";
+			fileDialog.Filter = DialogMessage;
 
 			var loader = new XmlSerializer(typeof(BuildSettings));
 
@@ -314,7 +361,7 @@ namespace Drehevel.Builder
 		{
 			var fileDialog = new SaveFileDialog();
 			fileDialog.InitialDirectory = SavePath;
-			fileDialog.Filter = "Build settings (*.xml)|*.xml";
+			fileDialog.Filter = DialogMessage;
 
 			var saver = new XmlSerializer(typeof(BuildSettings));
 
@@ -351,7 +398,7 @@ namespace Drehevel.Builder
 		private void OutputFileSelect(object sender, EventArgs e)
 		{
 			var fileDialog = new SaveFileDialog();
-			fileDialog.Filter = "Zip archive (*.zip)|*.zip";
+			fileDialog.Filter = string.Format("{0} (*.zip)|*.zip", Resources.ZipArchive);
 
 			if(fileDialog.ShowDialog() == DialogResult.OK)
 			{
