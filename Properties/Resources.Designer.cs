@@ -61,7 +61,7 @@ namespace Drehevel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Build aborted!.
+        ///   Looks up a localized string similar to Build aborted..
         /// </summary>
         internal static string BuildAborted {
             get {

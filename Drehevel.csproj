@@ -127,9 +127,6 @@
     <EmbeddedResource Include="Builder\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder\Builder.en.resx">
-      <DependentUpon>Builder.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Builder\Builder.fr.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>

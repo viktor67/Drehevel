@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BuildAborted" xml:space="preserve">
+    <value>Le build a été annulé.</value>
+  </data>
   <data name="BuildFinished" xml:space="preserve">
-    <value>Build fini en {0:0,00}s !</value>
+    <value>Le build a fini en {0:0,00}s !</value>
+  </data>
+  <data name="BuildSettings" xml:space="preserve">
+    <value>Paramètres de build</value>
   </data>
   <data name="CancelBeforeQuitMessage" xml:space="preserve">
     <value>Veuillez annuler le build avant de fermer l'application.</value>
@@ -128,6 +134,12 @@
   </data>
   <data name="DefaultCompression" xml:space="preserve">
     <value>Équilibrée</value>
+  </data>
+  <data name="EmptyOptionsMessage" xml:space="preserve">
+    <value>Veuillez sélectioner un dossier de project et un fichier de sortie.</value>
+  </data>
+  <data name="EmptyOptionsTitle" xml:space="preserve">
+    <value>Paramètres invalides</value>
   </data>
   <data name="FastCompression" xml:space="preserve">
     <value>Plus rapide</value>
@@ -140,5 +152,8 @@
   </data>
   <data name="ProcessingFile" xml:space="preserve">
     <value>Traitement de fichier en cours {0}/{1} ({2})</value>
+  </data>
+  <data name="ZipArchive" xml:space="preserve">
+    <value>Format ZIP</value>
   </data>
 </root>
