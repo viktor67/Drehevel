@@ -128,7 +128,8 @@ namespace Drehevel.Builder
 			switch(progressReport.Type)
 			{
 				case ProgressReportType.FileListReady:
-					var list = new FileList(_usedFiles);
+					// TODO: Invert the file list
+					var list = new FileList(_ignoredFiles);
 					list.Show();
 					break;
 
@@ -156,7 +157,7 @@ namespace Drehevel.Builder
 			}
 		}
 
-		private List<FileInfo> _usedFiles;
+		private IEnumerable<string> _ignoredFiles;
 
 		/// <summary>
 		/// Controls file sorting and archive creation.
@@ -191,7 +192,8 @@ namespace Drehevel.Builder
 
 				dirs.AddRange(availableDirs);
 
-				_usedFiles = new List<FileInfo>();
+				var _usedFiles = new List<FileInfo>();
+				_ignoredFiles = new List<string>();
 
 				foreach(var subdir in dirs)
 				{
@@ -212,6 +214,14 @@ namespace Drehevel.Builder
 						_usedFiles.Add(file);
 					}
 				}
+
+				var fileNames = from file in arguments.RootDirectory.GetFiles("*", SearchOption.AllDirectories)
+								select file.FullName;
+				
+				var usedNames = from file in _usedFiles
+								select file.FullName;
+
+				_ignoredFiles = fileNames.Except(usedNames);
 
 				archive.Save(projectFileSelector.Text);
 			}

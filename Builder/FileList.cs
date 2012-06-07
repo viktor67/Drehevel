@@ -8,9 +8,9 @@ namespace Drehevel.Builder
 {
 	public partial class FileList : Form
 	{
-		private IEnumerable<FileInfo> _fileList;
+		private IEnumerable<string> _fileList;
 
-		public FileList(IEnumerable<FileInfo> files)
+		public FileList(IEnumerable<string> files)
 		{
 			InitializeComponent();
 			_fileList = files;
@@ -18,7 +18,7 @@ namespace Drehevel.Builder
 			lvFiles.BeginUpdate();
 
 			foreach(var file in _fileList)
-				lvFiles.Items.Add(file.FullName);
+				lvFiles.Items.Add(file);
 
 			lvFiles.Columns[0].Width = lvFiles.Width - 32;
 
@@ -36,8 +36,8 @@ namespace Drehevel.Builder
 			lvFiles.Items.Clear();
 
 			// Specialised collections with poorly implemented AddRange funcs can fuck off
-			foreach(var file in _fileList.Where(file => file.FullName.Contains(tbQuickFilter.Text)))
-				lvFiles.Items.Add(file.FullName);
+			foreach(var file in _fileList.Where(file => file.Contains(tbQuickFilter.Text)))
+				lvFiles.Items.Add(file);
 
 			lvFiles.EndUpdate();
 		}

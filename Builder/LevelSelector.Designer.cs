@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelSelector));
 			this.btnOK = new System.Windows.Forms.Button();
 			this.btnNone = new System.Windows.Forms.Button();
 			this.btnAll = new System.Windows.Forms.Button();
@@ -37,54 +38,39 @@
 			// 
 			// btnOK
 			// 
-			this.btnOK.Location = new System.Drawing.Point(207, 185);
+			resources.ApplyResources(this.btnOK, "btnOK");
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(75, 23);
-			this.btnOK.TabIndex = 1;
-			this.btnOK.Text = "Start Build";
 			this.btnOK.UseVisualStyleBackColor = true;
 			// 
 			// btnNone
 			// 
-			this.btnNone.Location = new System.Drawing.Point(93, 185);
+			resources.ApplyResources(this.btnNone, "btnNone");
 			this.btnNone.Name = "btnNone";
-			this.btnNone.Size = new System.Drawing.Size(75, 23);
-			this.btnNone.TabIndex = 2;
-			this.btnNone.Text = "Select None";
 			this.btnNone.UseVisualStyleBackColor = true;
 			// 
 			// btnAll
 			// 
-			this.btnAll.Location = new System.Drawing.Point(12, 185);
+			resources.ApplyResources(this.btnAll, "btnAll");
 			this.btnAll.Name = "btnAll";
-			this.btnAll.Size = new System.Drawing.Size(75, 23);
-			this.btnAll.TabIndex = 3;
-			this.btnAll.Text = "Select All";
 			this.btnAll.UseVisualStyleBackColor = true;
 			// 
 			// lbLevels
 			// 
+			resources.ApplyResources(this.lbLevels, "lbLevels");
 			this.lbLevels.CheckOnClick = true;
 			this.lbLevels.FormattingEnabled = true;
-			this.lbLevels.Location = new System.Drawing.Point(12, 12);
 			this.lbLevels.Name = "lbLevels";
-			this.lbLevels.Size = new System.Drawing.Size(351, 154);
-			this.lbLevels.TabIndex = 4;
 			// 
 			// btnCancel
 			// 
-			this.btnCancel.Location = new System.Drawing.Point(288, 185);
+			resources.ApplyResources(this.btnCancel, "btnCancel");
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.btnCancel.TabIndex = 5;
-			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			// 
 			// LevelSelector
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(375, 220);
 			this.ControlBox = false;
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.lbLevels);
@@ -95,7 +81,6 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "LevelSelector";
-			this.Text = "Select Levels";
 			this.ResumeLayout(false);
 
 		}
