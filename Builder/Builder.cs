@@ -166,7 +166,9 @@ namespace Drehevel.Builder
 		/// <param name="e"></param>
 		private void DoWork(object sender, DoWorkEventArgs e)
 		{
-			Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Language);
+			var culture = new CultureInfo(Settings.Default.Language);
+			Thread.CurrentThread.CurrentUICulture = culture;
+			Thread.CurrentThread.CurrentCulture = culture;
 
 			var arguments = e.Argument as WorkArguments;
 
@@ -217,7 +219,7 @@ namespace Drehevel.Builder
 
 				var fileNames = from file in arguments.RootDirectory.GetFiles("*", SearchOption.AllDirectories)
 								select file.FullName;
-				
+
 				var usedNames = from file in _usedFiles
 								select file.FullName;
 

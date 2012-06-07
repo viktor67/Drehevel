@@ -17,7 +17,9 @@ namespace Drehevel
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Language);
+			var culture = new CultureInfo(Settings.Default.Language);
+			Thread.CurrentThread.CurrentUICulture = culture;
+			Thread.CurrentThread.CurrentCulture = culture;
 			Application.Run(new BuilderForm());
 		}
 	}

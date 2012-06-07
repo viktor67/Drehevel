@@ -121,7 +121,7 @@
     <value>Le build a été annulé.</value>
   </data>
   <data name="BuildFinished" xml:space="preserve">
-    <value>Le build a fini en {0:0,00}s !</value>
+    <value>Le build a fini en {0:0.00}s !</value>
   </data>
   <data name="BuildSettings" xml:space="preserve">
     <value>Paramètres de build</value>
