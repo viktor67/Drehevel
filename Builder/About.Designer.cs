@@ -40,6 +40,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -63,6 +64,7 @@
 			// 
 			// label3
 			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(12, 144);
 			this.label3.Name = "label3";
@@ -80,7 +82,6 @@
 			this.label4.Size = new System.Drawing.Size(91, 13);
 			this.label4.TabIndex = 5;
 			this.label4.Text = "ruan@crytek.com";
-			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
 			// label5
 			// 
@@ -116,9 +117,9 @@
 			this.label11.AutoSize = true;
 			this.label11.Location = new System.Drawing.Point(77, 67);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(69, 13);
+			this.label11.Size = new System.Drawing.Size(38, 13);
 			this.label11.TabIndex = 14;
-			this.label11.Text = "Frode Røhne";
+			this.label11.Text = "Lavizh";
 			// 
 			// label10
 			// 
@@ -156,11 +157,23 @@
 			this.label12.TabIndex = 17;
 			this.label12.Text = "TODO";
 			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(121, 67);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(92, 13);
+			this.label13.TabIndex = 18;
+			this.label13.Text = "lavizh@gmail.com";
+			// 
 			// AboutForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(315, 169);
+			this.Controls.Add(this.label13);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
@@ -195,5 +208,6 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label13;
 	}
 }

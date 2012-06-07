@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Drehevel.Builder
@@ -51,8 +51,7 @@ namespace Drehevel.Builder
 			if(lvFiles.SelectedItems[0] == null)
 				return;
 
-			System.Diagnostics.Process.Start("explorer.exe", @"/select, " + lvFiles.SelectedItems[0].Text);
-
+			Process.Start("explorer.exe", "/select, " + lvFiles.SelectedItems[0].Text);
 		}
 
 		private void OnResize(object sender, EventArgs e)

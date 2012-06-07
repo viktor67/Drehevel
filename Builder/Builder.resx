@@ -128,7 +128,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="françaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="&gt;&gt;btnProjectSelector.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -161,9 +161,6 @@
   <data name="fileProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>417, 23</value>
   </data>
-  <data name="&gt;&gt;projectFolderSelector.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -176,8 +173,8 @@
   <data name="&gt;&gt;deutschToolStripMenuItem.Name" xml:space="preserve">
     <value>deutschToolStripMenuItem</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>441, 24</value>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;deutschToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -191,8 +188,8 @@
   <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
-  <data name="&gt;&gt;norskToolStripMenuItem.Name" xml:space="preserve">
-    <value>norskToolStripMenuItem</value>
+  <data name="&gt;&gt;projectFolderSelector.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="btnCancelBuild.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -213,8 +210,11 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Drehevel - CryENGINE3 Build Tool</value>
   </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="compressionSelector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;btnCancelBuild.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;languageToolStripMenuItem.Name" xml:space="preserve">
     <value>languageToolStripMenuItem</value>
@@ -231,8 +231,8 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;中文ToolStripMenuItem.Name" xml:space="preserve">
-    <value>中文ToolStripMenuItem</value>
+  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
+    <value>中文</value>
   </data>
   <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -249,14 +249,14 @@
   <data name="&gt;&gt;中文ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="sourceCodeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="&gt;&gt;statusText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="projectFileSelector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Output File</value>
@@ -272,9 +272,6 @@
   </data>
   <data name="&gt;&gt;btnStartBuild.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
-    <value>中文</value>
   </data>
   <data name="&gt;&gt;projectFileSelector.Name" xml:space="preserve">
     <value>projectFileSelector</value>
@@ -297,8 +294,8 @@
   <data name="&gt;&gt;compressionSelector.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnFileSelector.Name" xml:space="preserve">
-    <value>btnFileSelector</value>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="overallProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>417, 23</value>
@@ -306,11 +303,8 @@
   <data name="btnStartBuild.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 23</value>
   </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
-  <data name="aboutToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="norskToolStripMenuItem.Text" xml:space="preserve">
+    <value>Norsk</value>
   </data>
   <data name="&gt;&gt;projectFolderSelector.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -322,13 +316,13 @@
     <value>Deutsch</value>
   </data>
   <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>234, 157</value>
   </data>
   <data name="reportAnIssueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="&gt;&gt;btnStartBuild.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -336,8 +330,8 @@
   <data name="openToolStripMenuItem.Text" xml:space="preserve">
     <value>Open</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>BuilderForm</value>
+  <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
+    <value>openToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;openToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -345,8 +339,8 @@
   <data name="btnCancelBuild.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
-    <value>englishToolStripMenuItem</value>
+  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="projectFileSelector.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -354,8 +348,8 @@
   <data name="&gt;&gt;aboutToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
-    <value>fileToolStripMenuItem</value>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
   </data>
   <data name="projectFileSelector.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 20</value>
@@ -370,7 +364,7 @@
     <value>Save</value>
   </data>
   <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>126, 22</value>
   </data>
   <data name="btnStartBuild.Text" xml:space="preserve">
     <value>Start</value>
@@ -380,12 +374,6 @@
   </data>
   <data name="compressionSelector.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 154</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;overallProgress.Type" xml:space="preserve">
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -411,9 +399,6 @@
   <data name="btnProjectSelector.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;btnCancelBuild.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="btnFileSelector.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
   </data>
@@ -426,11 +411,17 @@
   <data name="&gt;&gt;projectFolderSelector.Name" xml:space="preserve">
     <value>projectFolderSelector</value>
   </data>
-  <data name="compressionSelector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
+    <value>englishToolStripMenuItem</value>
   </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="fileProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="aboutToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 22</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileProgress.Name" xml:space="preserve">
     <value>fileProgress</value>
@@ -450,6 +441,9 @@
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>441, 24</value>
+  </data>
   <data name="btnProjectSelector.Text" xml:space="preserve">
     <value>Select</value>
   </data>
@@ -465,23 +459,20 @@
   <data name="projectFolderSelector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;zipWorker.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>BuilderForm</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
   </data>
   <data name="deutschToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="btnProjectSelector.Location" type="System.Drawing.Point, System.Drawing">
     <value>327, 54</value>
-  </data>
-  <data name="fileProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
   </data>
   <data name="btnFileSelector.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -504,6 +495,9 @@
   <data name="btnFileSelector.Location" type="System.Drawing.Point, System.Drawing">
     <value>327, 95</value>
   </data>
+  <data name="&gt;&gt;norskToolStripMenuItem.Name" xml:space="preserve">
+    <value>norskToolStripMenuItem</value>
+  </data>
   <data name="&gt;&gt;overallProgress.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
@@ -513,11 +507,17 @@
   <data name="&gt;&gt;statusText.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;openToolStripMenuItem.Name" xml:space="preserve">
-    <value>openToolStripMenuItem</value>
+  <data name="&gt;&gt;btnFileSelector.Name" xml:space="preserve">
+    <value>btnFileSelector</value>
   </data>
   <data name="overallProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="sourceCodeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 22</value>
+  </data>
+  <data name="&gt;&gt;中文ToolStripMenuItem.Name" xml:space="preserve">
+    <value>中文ToolStripMenuItem</value>
   </data>
   <data name="compressionSelector.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 21</value>
@@ -529,13 +529,16 @@
     <value>70, 13</value>
   </data>
   <data name="norskToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="&gt;&gt;aboutToolStripMenuItem.Name" xml:space="preserve">
     <value>aboutToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;projectFileSelector.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="reportAnIssueToolStripMenuItem.Text" xml:space="preserve">
     <value>Forum Thread</value>
@@ -548,6 +551,9 @@
   </data>
   <data name="&gt;&gt;fileProgress.Type" xml:space="preserve">
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
+    <value>fileToolStripMenuItem</value>
   </data>
   <data name="projectFolderSelector.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 20</value>
@@ -575,9 +581,6 @@
   </data>
   <data name="&gt;&gt;projectFolderSelector.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="norskToolStripMenuItem.Text" xml:space="preserve">
-    <value>Norsk</value>
   </data>
   <data name="btnFileSelector.Text" xml:space="preserve">
     <value>Select</value>
@@ -633,9 +636,6 @@
   <data name="projectFolderSelector.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;statusText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;btnProjectSelector.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -676,6 +676,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>no</value>
+    <value>zh</value>
   </metadata>
 </root>

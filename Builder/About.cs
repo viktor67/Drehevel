@@ -9,11 +9,8 @@ namespace Drehevel.Builder
 		public AboutForm()
 		{
 			InitializeComponent();
-		}
-
-		private void label4_Click(object sender, EventArgs e)
-		{
-			Process.Start("mailto:ruan@crytek.com");
+			label4.Click += (sender, args) => { Process.Start("mailto:ruan@crytek.com"); };
+			label13.Click += (sender, args) => { Process.Start("mailto:lavizh@gmail.com"); };
 		}
 	}
 }

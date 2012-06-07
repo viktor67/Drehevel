@@ -139,6 +139,9 @@ namespace Drehevel.Builder
 					overallProgress.Value = 0;
 					btnStartBuild.Enabled = true;
 					btnCancelBuild.Enabled = false;
+
+					if(progressReport.Type == ProgressReportType.Finished)
+						Process.Start("explorer.exe", "/select, " + projectFileSelector.Text);
 					break;
 			}
 		}
@@ -191,6 +194,8 @@ namespace Drehevel.Builder
 					var files = from file in subdir.GetFiles()
 								where !FileSorting.BannedExtensions.Contains(file.Extension)
 									&& !FileSorting.BannedFiles.Contains(file.Name)
+									&& (!FileSorting.BannedFolders.Any(folder => subdir.FullName.Contains(folder))
+										|| FileSorting.RequiredFiles.Contains(file.Name))
 								select file;
 
 					// Remap names for proper relative hierarchy inside the archive
