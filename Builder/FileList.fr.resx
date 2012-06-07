@@ -140,4 +140,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Fichiers ignorés</value>
   </data>
+  <data name="showInExplorerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afficher dans Explorateur</value>
+  </data>
 </root>

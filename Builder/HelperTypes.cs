@@ -76,8 +76,8 @@ namespace Drehevel.Builder
 		// Create a list of human-readable compression choices
 		public static UICompressionChoice[] CompressionChoices =
 		{
-			new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
 			new UICompressionChoice(Resources.DefaultCompression, CompressionLevel.Default),
+			new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
 			new UICompressionChoice(Resources.FastCompression, CompressionLevel.BestSpeed),
 			new UICompressionChoice(Resources.NoCompression, CompressionLevel.None)
 		};

@@ -130,6 +130,9 @@
     <EmbeddedResource Include="Builder\Builder.fr.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Builder\Builder.no.resx">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Builder\Builder.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +140,9 @@
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Builder\FileList.fr.resx">
+      <DependentUpon>FileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Builder\FileList.no.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Builder\FileList.resx">
@@ -148,11 +154,18 @@
     <EmbeddedResource Include="Builder\LevelSelector.fr.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Builder\LevelSelector.no.resx">
+      <DependentUpon>LevelSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Builder\LevelSelector.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Builder\LevelSelector.zh.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.no.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.no.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -171,6 +184,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.no.Designer.cs">
+      <DependentUpon>Resources.no.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Resources.zh.Designer.cs">
       <DependentUpon>Resources.zh.resx</DependentUpon>
       <AutoGen>True</AutoGen>
