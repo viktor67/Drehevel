@@ -117,27 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Path.Text" xml:space="preserve">
-    <value>Chemin d'accès</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Path.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="showInExplorerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
-  </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 26</value>
   </data>
+  <data name="showInExplorerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="tbQuickFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 265</value>
+  </data>
+  <data name="tbQuickFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 20</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
+    <value>115, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Rechercher</value>
+    <value>搜索以下对象的文件</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Fichiers ignorés</value>
+    <value>不必要文件</value>
   </data>
 </root>

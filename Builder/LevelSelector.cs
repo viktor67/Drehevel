@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Drehevel.Builder
 {
-	public partial class LevelSelector : Form
+	public partial class LevelSelectorForm : Form
 	{
 		private BuilderForm _owner;
 
@@ -13,7 +13,7 @@ namespace Drehevel.Builder
 		/// Initialises a new LevelSelector instance with the specified owner.
 		/// </summary>
 		/// <param name="owner"></param>
-		public LevelSelector(BuilderForm owner, IEnumerable<DirectoryInfo> levels)
+		public LevelSelectorForm(BuilderForm owner, IEnumerable<DirectoryInfo> levels)
 		{
 			InitializeComponent();
 			_owner = owner;

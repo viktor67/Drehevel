@@ -142,11 +142,21 @@
     <EmbeddedResource Include="Builder\FileList.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Builder\FileList.zh.resx">
+      <DependentUpon>FileList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Builder\LevelSelector.fr.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Builder\LevelSelector.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Builder\LevelSelector.zh.resx">
+      <DependentUpon>LevelSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +171,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.zh.Designer.cs">
+      <DependentUpon>Resources.zh.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Resources.fr.Designer.cs">
       <DependentUpon>Resources.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>

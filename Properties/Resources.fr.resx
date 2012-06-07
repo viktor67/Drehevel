@@ -151,7 +151,7 @@
     <value>Aucune</value>
   </data>
   <data name="ProcessingFile" xml:space="preserve">
-    <value>Traitement de fichier en cours {0}/{1} ({2})</value>
+    <value>Traitement du fichier {0}/{1} ({2})</value>
   </data>
   <data name="ZipArchive" xml:space="preserve">
     <value>Format ZIP</value>

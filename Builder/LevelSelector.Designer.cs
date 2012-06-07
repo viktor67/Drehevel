@@ -1,6 +1,6 @@
 ﻿namespace Drehevel.Builder
 {
-	partial class LevelSelector
+	partial class LevelSelectorForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelSelector));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelSelectorForm));
 			this.btnOK = new System.Windows.Forms.Button();
 			this.btnNone = new System.Windows.Forms.Button();
 			this.btnAll = new System.Windows.Forms.Button();
@@ -67,7 +67,7 @@
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			// 
-			// LevelSelector
+			// LevelSelectorForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +80,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "LevelSelector";
+			this.Name = "LevelSelectorForm";
 			this.ResumeLayout(false);
 
 		}

@@ -5,19 +5,46 @@ using Ionic.Zlib;
 
 namespace Drehevel.Builder
 {
+	/// <summary>
+	/// Arguments as required by the archiver thread.
+	/// </summary>
 	public class WorkArguments
 	{
+		/// <summary>
+		/// The root directory of the project.
+		/// </summary>
 		public DirectoryInfo RootDirectory { get; set; }
+
+		/// <summary>
+		/// The list of excluded levels as determined by the level selector form.
+		/// </summary>
 		public IEnumerable<DirectoryInfo> ExcludedLevels { get; set; }
 	}
-
+	
+	/// <summary>
+	/// A message sent from the archiver thread back to the GUI thread.
+	/// </summary>
 	public struct ProgressReport
 	{
+		/// <summary>
+		/// The message to be displayed with the progress bar.
+		/// </summary>
 		public string Message { get; set; }
+
+		/// <summary>
+		/// The type of update that has been sent.
+		/// </summary>
 		public ProgressReportType Type { get; set; }
+
+		/// <summary>
+		/// The total number of files found.
+		/// </summary>
 		public int Max { get; set; }
 	}
 
+	/// <summary>
+	/// The type of message sent in a progress report.
+	/// </summary>
 	public enum ProgressReportType
 	{
 		Startup,

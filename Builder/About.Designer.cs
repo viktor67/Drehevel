@@ -1,6 +1,6 @@
 ﻿namespace Drehevel.Builder
 {
-	partial class About
+	partial class AboutForm
 	{
 		/// <summary>
 		/// Required designer variable.

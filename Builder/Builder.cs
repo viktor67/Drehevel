@@ -16,23 +16,6 @@ namespace Drehevel.Builder
 {
 	public partial class BuilderForm : Form
 	{
-		private CompressionLevel _compression;
-		/// <summary>
-		/// The currently selected compression level.
-		/// </summary>
-		private CompressionLevel Compression
-		{
-			get
-			{
-				return _compression;
-			}
-			set
-			{
-				_compression = value;
-				compressionSelector.SelectedIndex = BuildSettings.CompressionChoices.ToList().FindIndex(compression => compression.Compression == value);
-			}
-		}
-
 		public BuilderForm()
 		{
 			InitializeComponent();
@@ -41,7 +24,7 @@ namespace Drehevel.Builder
 			Compression = BuildSettings.CompressionChoices.First().Compression;
 
 			aboutToolStripMenuItem1.Click += (sender, args) =>
-				new About().ShowDialog();
+				new AboutForm().ShowDialog();
 
 			reportAnIssueToolStripMenuItem.Click += (sender, args) =>
 				Process.Start("http://www.crydev.net/viewtopic.php?f=311&t=89643");
@@ -90,10 +73,14 @@ namespace Drehevel.Builder
 									where levelDir.GetFiles().Any(file => file.Extension == ".cry")
 									select levelDir;
 
-			var levelSelector = new LevelSelector(this, filteredLevelDirs);
+			var levelSelector = new LevelSelectorForm(this, filteredLevelDirs);
 			levelSelector.ShowDialog();
 		}
 
+		/// <summary>
+		/// Starts a build.
+		/// </summary>
+		/// <param name="excludedLevels">The levels to be excluded from the build.</param>
 		public void StartBuild(IEnumerable<DirectoryInfo> excludedLevels)
 		{
 			zipWorker.RunWorkerAsync(new WorkArguments
@@ -128,7 +115,6 @@ namespace Drehevel.Builder
 			switch(progressReport.Type)
 			{
 				case ProgressReportType.FileListReady:
-					// TODO: Invert the file list
 					var list = new FileList(_ignoredFiles);
 					list.Show();
 					break;
@@ -415,6 +401,23 @@ namespace Drehevel.Builder
 			if(fileDialog.ShowDialog() == DialogResult.OK)
 			{
 				projectFileSelector.Text = fileDialog.FileName;
+			}
+		}
+
+		private CompressionLevel _compression;
+		/// <summary>
+		/// The currently selected compression level.
+		/// </summary>
+		private CompressionLevel Compression
+		{
+			get
+			{
+				return _compression;
+			}
+			set
+			{
+				_compression = value;
+				compressionSelector.SelectedIndex = BuildSettings.CompressionChoices.ToList().FindIndex(compression => compression.Compression == value);
 			}
 		}
 	}
