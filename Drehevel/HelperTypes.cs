@@ -20,7 +20,7 @@ namespace Drehevel
 		/// </summary>
 		public IEnumerable<DirectoryInfo> ExcludedLevels { get; set; }
 	}
-	
+
 	/// <summary>
 	/// A message sent from the archiver thread back to the GUI thread.
 	/// </summary>
@@ -74,13 +74,19 @@ namespace Drehevel
 		public CompressionLevel Compression { get; set; }
 
 		// Create a list of human-readable compression choices
-		public static UICompressionChoice[] CompressionChoices =
+		public static List<UICompressionChoice> CompressionChoices
 		{
-			new UICompressionChoice(Resources.DefaultCompression, CompressionLevel.Default),
-			new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
-			new UICompressionChoice(Resources.FastCompression, CompressionLevel.BestSpeed),
-			new UICompressionChoice(Resources.NoCompression, CompressionLevel.None)
-		};
+			get
+			{
+				return new List<UICompressionChoice>()
+				{
+					new UICompressionChoice(Resources.DefaultCompression, CompressionLevel.Default),
+					new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
+					new UICompressionChoice(Resources.FastCompression, CompressionLevel.BestSpeed),
+					new UICompressionChoice(Resources.NoCompression, CompressionLevel.None),
+				};
+			}
+		}
 	}
 
 	public static class FileSorting
