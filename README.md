@@ -9,4 +9,6 @@ Drehevel, meaning build, is a simple tool to help automate distribution of CryEN
 
 # Credits
 
-* DotNetZip for the archival library.
+* Lavizh for the Norsk translation
+* Falc for the Deutsch translation
+* DotNetZip for the archival library
