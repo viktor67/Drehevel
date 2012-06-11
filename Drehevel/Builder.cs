@@ -46,9 +46,16 @@ namespace Drehevel
 			var culture = CultureInfo.GetCultures(CultureTypes.AllCultures).First(
 				cult => string.Equals(cult.NativeName, lang, StringComparison.InvariantCultureIgnoreCase));
 
+			Thread.CurrentThread.CurrentUICulture = culture;
+			Thread.CurrentThread.CurrentCulture = culture;
+
 			Settings.Default.Language = culture.TwoLetterISOLanguageName;
 			Settings.Default.Save();
-			Application.Restart();
+
+			var newForm = new BuilderForm();
+			newForm.Show();
+			newForm.Location = Location;
+			Close();
 		}
 
 		/// <summary>

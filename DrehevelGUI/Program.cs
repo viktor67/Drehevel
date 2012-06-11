@@ -20,7 +20,11 @@ namespace Drehevel.Launcher
 			var culture = new CultureInfo(Settings.Default.Language);
 			Thread.CurrentThread.CurrentUICulture = culture;
 			Thread.CurrentThread.CurrentCulture = culture;
-			Application.Run(new BuilderForm());
+
+			var instance = new BuilderForm();
+			instance.Show();
+
+			Application.Run();
 		}
 	}
 }
