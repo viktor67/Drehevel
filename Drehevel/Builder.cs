@@ -16,6 +16,8 @@ namespace Drehevel
 {
 	public partial class BuilderForm : Form
 	{
+		private bool falseClose;
+
 		public BuilderForm()
 		{
 			InitializeComponent();
@@ -55,6 +57,8 @@ namespace Drehevel
 			var newForm = new BuilderForm();
 			newForm.Show();
 			newForm.Location = Location;
+
+			falseClose = true;
 			Close();
 		}
 
@@ -312,6 +316,10 @@ namespace Drehevel
 				MessageBox.Show(Resources.CancelBeforeQuitMessage, Resources.CancelBeforeQuitTitle);
 				e.Cancel = true;
 			}
+
+			// Can't distinguish between UI close calls and manual ones
+			if(!falseClose)
+				Application.Exit();
 
 			Settings.Default.Save();
 		}
