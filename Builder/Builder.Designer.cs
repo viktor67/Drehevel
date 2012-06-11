@@ -1,4 +1,4 @@
-﻿namespace Drehevel.Builder
+﻿namespace Drehevel
 {
 	partial class BuilderForm
 	{

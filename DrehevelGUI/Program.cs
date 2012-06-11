@@ -2,10 +2,10 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
-using Drehevel.Builder;
+using Drehevel;
 using Drehevel.Properties;
 
-namespace Drehevel
+namespace Drehevel.Launcher
 {
 	static class Program
 	{
@@ -13,7 +13,7 @@ namespace Drehevel
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main(string[] args)
+		static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

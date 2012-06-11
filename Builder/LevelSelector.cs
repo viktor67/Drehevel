@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Drehevel.Builder
+namespace Drehevel
 {
 	public partial class LevelSelectorForm : Form
 	{

@@ -3,7 +3,7 @@ using System.IO;
 using Drehevel.Properties;
 using Ionic.Zlib;
 
-namespace Drehevel.Builder
+namespace Drehevel
 {
 	/// <summary>
 	/// Arguments as required by the archiver thread.

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Drehevel.Builder
+namespace Drehevel
 {
 	public partial class FileList : Form
 	{

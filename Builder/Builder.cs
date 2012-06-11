@@ -12,7 +12,7 @@ using Drehevel.Properties;
 using Ionic.Zip;
 using Ionic.Zlib;
 
-namespace Drehevel.Builder
+namespace Drehevel
 {
 	public partial class BuilderForm : Form
 	{
