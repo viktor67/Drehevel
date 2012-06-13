@@ -34,12 +34,11 @@ namespace Drehevel
 			sourceCodeToolStripMenuItem.Click += (sender, args) =>
 				Process.Start("https://github.com/returnString/Drehevel/");
 
-			// Register languages
-			englishToolStripMenuItem.Click += OnLanguageChange;
-			françaisToolStripMenuItem.Click += OnLanguageChange;
-			deutschToolStripMenuItem.Click += OnLanguageChange;
-			norskToolStripMenuItem.Click += OnLanguageChange;
-			中文ToolStripMenuItem.Click += OnLanguageChange;
+
+			var languageMenuItems = languageToolStripMenuItem.DropDownItems.OfType<ToolStripMenuItem>();
+
+			foreach(var languageMenu in languageMenuItems)
+				languageMenu.Click += OnLanguageChange;
 		}
 
 		private void OnLanguageChange(object sender, EventArgs e)

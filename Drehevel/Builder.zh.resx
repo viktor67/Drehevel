@@ -179,19 +179,19 @@
     <value>设置</value>
   </data>
   <data name="reportAnIssueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>122, 22</value>
   </data>
   <data name="reportAnIssueToolStripMenuItem.Text" xml:space="preserve">
     <value>支持论坛</value>
   </data>
   <data name="sourceCodeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>122, 22</value>
   </data>
   <data name="sourceCodeToolStripMenuItem.Text" xml:space="preserve">
     <value>源代码</value>
   </data>
   <data name="aboutToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>122, 22</value>
   </data>
   <data name="aboutToolStripMenuItem1.Text" xml:space="preserve">
     <value>关于</value>
