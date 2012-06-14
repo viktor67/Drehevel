@@ -18,8 +18,8 @@ namespace Drehevel.Launcher
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			var culture = new CultureInfo(Settings.Default.Language);
-			Thread.CurrentThread.CurrentUICulture = culture;
-			Thread.CurrentThread.CurrentCulture = culture;
+
+			culture.UseOnCurrentThread();
 
 			var instance = new BuilderForm();
 			instance.Show();

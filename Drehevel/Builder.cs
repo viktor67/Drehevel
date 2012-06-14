@@ -34,7 +34,6 @@ namespace Drehevel
 			sourceCodeToolStripMenuItem.Click += (sender, args) =>
 				Process.Start("https://github.com/returnString/Drehevel/");
 
-
 			var languageMenuItems = languageToolStripMenuItem.DropDownItems.OfType<ToolStripMenuItem>();
 
 			foreach(var languageMenu in languageMenuItems)
@@ -47,8 +46,7 @@ namespace Drehevel
 			var culture = CultureInfo.GetCultures(CultureTypes.AllCultures).First(
 				cult => string.Equals(cult.NativeName, lang, StringComparison.InvariantCultureIgnoreCase));
 
-			Thread.CurrentThread.CurrentUICulture = culture;
-			Thread.CurrentThread.CurrentCulture = culture;
+			culture.UseOnCurrentThread();
 
 			Settings.Default.Language = culture.TwoLetterISOLanguageName;
 			Settings.Default.Save();

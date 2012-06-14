@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using Drehevel.Properties;
 using Ionic.Zlib;
 
@@ -129,5 +131,14 @@ namespace Drehevel
 			"luac.out",
 			"tags.txt"
 		};
+	}
+
+	public static class CultureHelper
+	{
+		public static void UseOnCurrentThread(this CultureInfo culture)
+		{
+			Thread.CurrentThread.CurrentUICulture = culture;
+			Thread.CurrentThread.CurrentCulture = culture;
+		}
 	}
 }
