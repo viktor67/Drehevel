@@ -108,80 +108,80 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperTypes.cs" />
-    <Compile Include="Builder.cs">
+    <Compile Include="Builder\Builder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Builder.Designer.cs">
+    <Compile Include="Builder\Builder.Designer.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelSelector.cs">
+    <Compile Include="Level Selector\LevelSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LevelSelector.Designer.cs">
+    <Compile Include="Level Selector\LevelSelector.Designer.cs">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="FileList.cs">
+    <Compile Include="File List\FileList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FileList.Designer.cs">
+    <Compile Include="File List\FileList.Designer.cs">
       <DependentUpon>FileList.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.de.resx">
+    <EmbeddedResource Include="Builder\Builder.de.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.fr.resx">
+    <EmbeddedResource Include="Builder\Builder.fr.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.it.resx">
+    <EmbeddedResource Include="Builder\Builder.it.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.no.resx">
+    <EmbeddedResource Include="Builder\Builder.no.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.resx">
+    <EmbeddedResource Include="Builder\Builder.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Builder.zh.resx">
+    <EmbeddedResource Include="Builder\Builder.zh.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.de.resx">
+    <EmbeddedResource Include="File List\FileList.de.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.fr.resx">
+    <EmbeddedResource Include="File List\FileList.fr.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.it.resx">
+    <EmbeddedResource Include="File List\FileList.it.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.no.resx">
+    <EmbeddedResource Include="File List\FileList.no.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.resx">
+    <EmbeddedResource Include="File List\FileList.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileList.zh.resx">
+    <EmbeddedResource Include="File List\FileList.zh.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.de.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.de.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.fr.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.fr.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.it.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.it.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.no.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.no.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelSelector.zh.resx">
+    <EmbeddedResource Include="Level Selector\LevelSelector.zh.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\RuntimeMessages.it.resx" />
