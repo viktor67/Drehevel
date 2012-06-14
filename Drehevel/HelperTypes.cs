@@ -82,10 +82,10 @@ namespace Drehevel
 			{
 				return new List<UICompressionChoice>()
 				{
-					new UICompressionChoice(Resources.DefaultCompression, CompressionLevel.Default),
-					new UICompressionChoice(Resources.HighCompression, CompressionLevel.BestCompression),
-					new UICompressionChoice(Resources.FastCompression, CompressionLevel.BestSpeed),
-					new UICompressionChoice(Resources.NoCompression, CompressionLevel.None),
+					new UICompressionChoice(RuntimeMessages.DefaultCompression, CompressionLevel.Default),
+					new UICompressionChoice(RuntimeMessages.HighCompression, CompressionLevel.BestCompression),
+					new UICompressionChoice(RuntimeMessages.FastCompression, CompressionLevel.BestSpeed),
+					new UICompressionChoice(RuntimeMessages.NoCompression, CompressionLevel.None),
 				};
 			}
 		}

@@ -137,8 +137,8 @@
   <data name="Path.Width" type="System.Int32, mscorlib">
     <value>38</value>
   </data>
-  <data name="Path.Text" xml:space="preserve">
-    <value>Path</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value> Ignored Files</value>
   </data>
   <data name="&gt;&gt;lvFiles.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -192,6 +192,9 @@
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
+  <data name="&gt;&gt;showInExplorerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tbQuickFilter.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="tbQuickFilter.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;showInExplorerToolStripMenuItem.Name" xml:space="preserve">
+    <value>showInExplorerToolStripMenuItem</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -216,14 +222,8 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 268</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;Path.Name" xml:space="preserve">
+    <value>Path</value>
   </data>
   <data name="showInExplorerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
@@ -234,20 +234,20 @@
   <data name="lvFiles.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;showInExplorerToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Path.Name" xml:space="preserve">
+  <data name="Path.Text" xml:space="preserve">
     <value>Path</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value> Ignored Files</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbQuickFilter.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;showInExplorerToolStripMenuItem.Name" xml:space="preserve">
-    <value>showInExplorerToolStripMenuItem</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -256,6 +256,6 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>no</value>
+    <value>it</value>
   </metadata>
 </root>

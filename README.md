@@ -1,14 +1,17 @@
 Drehevel, meaning build, is a simple tool to help automate distribution of CryENGINE3 games.
 
+Got a feature request? Open an issue here, or send me an email: ruan@crytek.com
+
 # What it does
 
 * Removes unnecessary files like backups and editor data
+* Allows you to select which levels to include in your build
 * Packages the game into a convenient .zip archive
 * Saves build settings to .xml for reuse
-* Processes the stock free SDK build in two minutes at highest compression settings on an i7 2600k, or 12 seconds at no compression
 
 # Credits
 
-* Lavizh for the Norsk translation
-* Falc for the Deutsch translation
-* DotNetZip for the archival library
+* **Lavizh** - Norsk translation
+* **Falc** - Deutsch translation
+* **Michele Stefanelli** - Italiano translation
+* **DotNetZip** - Archival library

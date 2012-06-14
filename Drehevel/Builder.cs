@@ -68,7 +68,7 @@ namespace Drehevel
 		{
 			if(string.IsNullOrEmpty(projectFolderSelector.Text) || string.IsNullOrEmpty(projectFileSelector.Text))
 			{
-				MessageBox.Show(Resources.EmptyOptionsMessage, Resources.EmptyOptionsTitle);
+				MessageBox.Show(RuntimeMessages.EmptyOptionsMessage, RuntimeMessages.EmptyOptionsTitle);
 				return;
 			}
 
@@ -241,7 +241,7 @@ namespace Drehevel
 			if(zipWorker.CancellationPending)
 			{
 				e.Cancel = true;
-				zipWorker.ReportProgress(0, new ProgressReport { Type = ProgressReportType.Aborted, Message = Resources.BuildAborted });
+				zipWorker.ReportProgress(0, new ProgressReport { Type = ProgressReportType.Aborted, Message = RuntimeMessages.BuildAborted });
 				return;
 			}
 
@@ -270,7 +270,7 @@ namespace Drehevel
 						zipWorker.ReportProgress(e.EntriesSaved,
 							new ProgressReport
 							{
-								Message = string.Format(Resources.ProcessingFile, e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
+								Message = string.Format(RuntimeMessages.ProcessingFile, e.EntriesSaved, e.EntriesTotal, e.CurrentEntry.FileName.Split('/').Last()),
 								Type = ProgressReportType.ArchiveUpdate
 							});
 					}
@@ -288,7 +288,7 @@ namespace Drehevel
 				case ZipProgressEventType.Saving_Completed:
 					{
 						zipWorker.ReportProgress(100,
-							new ProgressReport { Message = string.Format(Resources.BuildFinished, _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
+							new ProgressReport { Message = string.Format(RuntimeMessages.BuildFinished, _stopwatch.Elapsed.TotalSeconds), Type = ProgressReportType.Finished });
 					}
 					break;
 			}
@@ -310,7 +310,7 @@ namespace Drehevel
 			// Better than assuming the user hasn't accidentally misclicked
 			if(zipWorker.IsBusy)
 			{
-				MessageBox.Show(Resources.CancelBeforeQuitMessage, Resources.CancelBeforeQuitTitle);
+				MessageBox.Show(RuntimeMessages.CancelBeforeQuitMessage, RuntimeMessages.CancelBeforeQuitTitle);
 				e.Cancel = true;
 			}
 
@@ -339,7 +339,7 @@ namespace Drehevel
 
 		private string DialogMessage
 		{
-			get { return string.Format("{0} (*.xml)|*.xml", Resources.BuildSettings); }
+			get { return string.Format("{0} (*.xml)|*.xml", RuntimeMessages.BuildSettings); }
 		}
 
 		/// <summary>
@@ -413,7 +413,7 @@ namespace Drehevel
 		private void OutputFileSelect(object sender, EventArgs e)
 		{
 			var fileDialog = new SaveFileDialog();
-			fileDialog.Filter = string.Format("{0} (*.zip)|*.zip", Resources.ZipArchive);
+			fileDialog.Filter = string.Format("{0} (*.zip)|*.zip", RuntimeMessages.ZipArchive);
 
 			if(fileDialog.ShowDialog() == DialogResult.OK)
 			{

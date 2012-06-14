@@ -9,8 +9,8 @@ namespace Drehevel
 		public AboutForm()
 		{
 			InitializeComponent();
-			label4.Click += (sender, args) => { Process.Start("mailto:ruan@crytek.com"); };
-			label13.Click += (sender, args) => { Process.Start("mailto:lavizh@gmail.com"); };
+			label4.Click += (sender, args) => Process.Start("mailto:ruan@crytek.com");
+			label3.Click += (sender, args) => Process.Start(@"https://github.com/returnString/Drehevel#credits/");
 		}
 	}
 }
