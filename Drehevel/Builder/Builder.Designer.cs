@@ -51,6 +51,7 @@
 			this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.italianoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.norskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.slovenčinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportAnIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,6 +176,7 @@
             this.deutschToolStripMenuItem,
             this.italianoToolStripMenuItem,
             this.norskToolStripMenuItem,
+            this.slovenčinaToolStripMenuItem,
             this.中文ToolStripMenuItem});
 			this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
 			// 
@@ -202,6 +204,11 @@
 			// 
 			resources.ApplyResources(this.norskToolStripMenuItem, "norskToolStripMenuItem");
 			this.norskToolStripMenuItem.Name = "norskToolStripMenuItem";
+			// 
+			// slovenčinaToolStripMenuItem
+			// 
+			resources.ApplyResources(this.slovenčinaToolStripMenuItem, "slovenčinaToolStripMenuItem");
+			this.slovenčinaToolStripMenuItem.Name = "slovenčinaToolStripMenuItem";
 			// 
 			// 中文ToolStripMenuItem
 			// 
@@ -312,6 +319,7 @@
 		private System.Windows.Forms.ToolStripMenuItem norskToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 中文ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem italianoToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem slovenčinaToolStripMenuItem;
 	}
 }
 

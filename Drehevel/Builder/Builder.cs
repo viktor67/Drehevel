@@ -22,8 +22,8 @@ namespace Drehevel
 		{
 			InitializeComponent();
 
-			compressionSelector.DataSource = BuildSettings.CompressionChoices;
-			Compression = BuildSettings.CompressionChoices.First().Compression;
+			compressionSelector.DataSource = UICompressionChoice.Choices;
+			Compression = UICompressionChoice.Choices.First().Compression;
 
 			aboutToolStripMenuItem1.Click += (sender, args) =>
 				new AboutForm().ShowDialog();
@@ -434,7 +434,7 @@ namespace Drehevel
 			set
 			{
 				_compression = value;
-				compressionSelector.SelectedIndex = BuildSettings.CompressionChoices.ToList().FindIndex(compression => compression.Compression == value);
+				compressionSelector.SelectedIndex = UICompressionChoice.Choices.ToList().FindIndex(compression => compression.Compression == value);
 			}
 		}
 	}

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
-using Drehevel;
 using Drehevel.Properties;
 
 namespace Drehevel.Launcher
@@ -17,8 +15,8 @@ namespace Drehevel.Launcher
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			var culture = new CultureInfo(Settings.Default.Language);
 
+			var culture = new CultureInfo(Settings.Default.Language);
 			culture.UseOnCurrentThread();
 
 			var instance = new BuilderForm();

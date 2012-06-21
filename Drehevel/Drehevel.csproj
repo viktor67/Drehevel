@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Builder\Builder.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Builder\Builder.sk.resx">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Builder\Builder.zh.resx">
       <DependentUpon>Builder.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +164,9 @@
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="File List\FileList.resx">
+      <DependentUpon>FileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="File List\FileList.sk.resx">
       <DependentUpon>FileList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="File List\FileList.zh.resx">
@@ -181,9 +187,13 @@
     <EmbeddedResource Include="Level Selector\LevelSelector.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Level Selector\LevelSelector.sk.resx">
+      <DependentUpon>LevelSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Level Selector\LevelSelector.zh.resx">
       <DependentUpon>LevelSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\RuntimeMessages.sk.resx" />
     <EmbeddedResource Include="Properties\RuntimeMessages.it.resx" />
     <EmbeddedResource Include="Properties\RuntimeMessages.de.resx" />
     <EmbeddedResource Include="Properties\RuntimeMessages.no.resx" />

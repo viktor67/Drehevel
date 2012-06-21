@@ -62,21 +62,13 @@ namespace Drehevel
 		public CompressionLevel Compression { get; set; }
 		public string Name { get; set; }
 
-		public UICompressionChoice(string name, CompressionLevel level)
+		private UICompressionChoice(string name, CompressionLevel level)
 		{
 			this.Compression = level;
 			this.Name = name;
 		}
-	}
 
-	public class BuildSettings
-	{
-		public string ProjectFolder { get; set; }
-		public string OutputName { get; set; }
-		public CompressionLevel Compression { get; set; }
-
-		// Create a list of human-readable compression choices
-		public static List<UICompressionChoice> CompressionChoices
+		public static List<UICompressionChoice> Choices
 		{
 			get
 			{
@@ -89,6 +81,13 @@ namespace Drehevel
 				};
 			}
 		}
+	}
+
+	public class BuildSettings
+	{
+		public string ProjectFolder { get; set; }
+		public string OutputName { get; set; }
+		public CompressionLevel Compression { get; set; }
 	}
 
 	public static class FileSorting
