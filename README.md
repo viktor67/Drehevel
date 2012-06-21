@@ -14,5 +14,5 @@ Got a feature request? Open an issue here, or send me an email: ruan@crytek.com
 * **Lavizh** - Norsk translation
 * **Falc** - Deutsch translation
 * **Michele Stefanelli** - Italiano translation
-* **Tom� "doC" Lancz** - Sloven?ina translation
+* **Tomáš "doC" Lancz** - Slovenčina translation
 * **DotNetZip** - Archival library
